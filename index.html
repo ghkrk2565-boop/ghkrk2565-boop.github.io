@@ -314,5 +314,22 @@
 
 <a class="toplink" href="#top">↑ Top</a>
 
+<script>
+  // Clean up the old Gatsby (holo-theme) service worker + caches that were
+  // pinning the previous site in visitors' browsers. Safe no-op once gone.
+  (function () {
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then(function (regs) {
+        regs.forEach(function (r) { r.unregister(); });
+      }).catch(function () {});
+    }
+    if (window.caches && caches.keys) {
+      caches.keys().then(function (keys) {
+        keys.forEach(function (k) { caches.delete(k); });
+      }).catch(function () {});
+    }
+  })();
+</script>
+
 </body>
 </html>
