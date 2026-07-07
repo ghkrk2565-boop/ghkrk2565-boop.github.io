@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- =========================================================
+     EDIT ME: 이름 / 소개 / 프로젝트를 여기 상단에서 바꾸세요.
+     이미지는 각 <svg class="ph"> 자리를 <img src="img/파일.jpg"> 로
+     교체하면 됩니다. (img/ 폴더에 사진 넣고 커밋)
+     ========================================================= -->
+<title>Hanseok Kim — Selected Works</title>
+<meta name="description" content="Hanseok Kim — selected works, index and information. Portfolio." />
+<style>
+  :root{
+    --bg:#f2f1ee;
+    --fg:#111;
+    --muted:#8a8a85;
+    --line:#d9d8d3;
+    --accent:#1a1af0;
+    --maxw:1360px;
+    --pad:clamp(16px,4vw,56px);
+    --sans:"Helvetica Neue",Helvetica,Arial,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;background:var(--bg);color:var(--fg);
+    font-family:var(--sans);font-size:15px;line-height:1.5;
+    letter-spacing:.01em;-webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  a:hover{color:var(--accent);}
+  img{max-width:100%;display:block;}
+
+  /* ---------- fixed header ---------- */
+  header.top{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    display:flex;align-items:baseline;gap:16px;
+    padding:14px var(--pad);
+    background:rgba(242,241,238,.82);
+    backdrop-filter:saturate(180%) blur(10px);
+    border-bottom:1px solid var(--line);
+    font-size:12px;letter-spacing:.04em;text-transform:uppercase;
+  }
+  header.top .brand{font-weight:700;}
+  header.top nav{display:flex;gap:18px;margin-left:auto;flex-wrap:wrap;}
+  header.top nav a{color:var(--muted);}
+  header.top nav a:hover,header.top nav a.on{color:var(--fg);}
+  .idx{color:var(--muted);}
+
+  /* ---------- layout ---------- */
+  main{max-width:var(--maxw);margin:0 auto;padding:96px var(--pad) 0;}
+  .hero{
+    padding:min(12vh,120px) 0 clamp(40px,9vh,120px);
+    border-bottom:1px solid var(--line);
+  }
+  .hero h1{
+    font-size:clamp(34px,7.5vw,104px);line-height:.98;
+    font-weight:700;letter-spacing:-.02em;margin:0 0 .5em;
+    max-width:14ch;
+  }
+  .hero p{
+    font-size:clamp(15px,1.7vw,20px);max-width:46ch;color:#333;margin:0;
+  }
+  .hero .meta{
+    margin-top:28px;display:flex;gap:26px;flex-wrap:wrap;
+    font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);
+  }
+
+  /* ---------- project row ---------- */
+  .work{
+    display:grid;grid-template-columns:1fr;gap:22px;
+    padding:clamp(40px,7vh,90px) 0;border-bottom:1px solid var(--line);
+  }
+  @media(min-width:820px){
+    .work{grid-template-columns:56% 1fr;gap:clamp(28px,4vw,64px);align-items:start;}
+    .work.flip .media{order:2;}
+  }
+  .work .tag{
+    grid-column:1/-1;display:flex;justify-content:space-between;
+    font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);
+    border-top:1px solid var(--fg);padding-top:8px;margin-bottom:6px;
+  }
+  .work .tag b{color:var(--fg);font-weight:700;}
+  .media{display:grid;gap:14px;}
+  .media.two{grid-template-columns:1fr 1fr;}
+  figure{margin:0;}
+  figure figcaption{margin-top:7px;font-size:11px;color:var(--muted);letter-spacing:.03em;}
+  .ph{width:100%;height:auto;display:block;border:1px solid var(--line);background:#fff;}
+
+  .info h2{font-size:clamp(20px,2.6vw,30px);font-weight:700;letter-spacing:-.01em;margin:0 0 .55em;}
+  .info p{margin:0 0 1em;max-width:52ch;color:#222;}
+  .info ul{list-style:none;margin:1.2em 0 0;padding:0;border-top:1px solid var(--line);}
+  .info ul li{
+    display:flex;justify-content:space-between;gap:16px;
+    padding:9px 0;border-bottom:1px solid var(--line);font-size:13px;
+  }
+  .info ul li span:last-child{color:var(--muted);text-align:right;}
+
+  /* ---------- about + footer ---------- */
+  .about{padding:clamp(50px,9vh,120px) 0;border-bottom:1px solid var(--line);}
+  .about .lead{font-size:clamp(20px,3.2vw,40px);line-height:1.22;font-weight:500;letter-spacing:-.01em;max-width:24ch;margin:0 0 1.4em;}
+  .about .cols{display:grid;grid-template-columns:1fr;gap:26px;}
+  @media(min-width:820px){.about .cols{grid-template-columns:repeat(3,1fr);gap:44px;}}
+  .about h3{font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin:0 0 10px;border-top:1px solid var(--fg);padding-top:8px;}
+  .about .cols p{margin:0 0 .6em;font-size:14px;}
+
+  footer{max-width:var(--maxw);margin:0 auto;padding:40px var(--pad) 64px;
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
+    font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);}
+  footer a.big{font-size:clamp(22px,5vw,52px);text-transform:none;letter-spacing:-.02em;color:var(--fg);font-weight:700;}
+  .toplink{position:fixed;right:var(--pad);bottom:18px;z-index:40;font-size:12px;
+    text-transform:uppercase;letter-spacing:.04em;color:var(--muted);
+    background:rgba(242,241,238,.82);backdrop-filter:blur(6px);padding:6px 10px;border:1px solid var(--line);}
+  ::selection{background:var(--accent);color:#fff;}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <a class="brand" href="#top">Hanseok&nbsp;Kim</a>
+  <span class="idx">Selected Works ’26</span>
+  <nav>
+    <a href="#work">Index</a>
+    <a href="#about">Info</a>
+    <a href="mailto:ghkrk2565@gmail.com">Email</a>
+    <a href="#" aria-label="Instagram">Instagram</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <h1>Designer &amp; Maker, working across web and image.</h1>
+    <p>A selected index of projects — identity, interface, and editorial work.
+       Currently open to collaborations and commissions.</p>
+    <div class="meta">
+      <span>Based in Seoul</span>
+      <span>Est. 2026</span>
+      <span><a href="mailto:ghkrk2565@gmail.com">ghkrk2565@gmail.com</a></span>
+    </div>
+  </section>
+
+  <section id="work">
+
+    <!-- ===== A1 ===== -->
+    <article class="work">
+      <div class="tag"><span><b>A1</b> &nbsp; Identity</span><span>2026 — Ongoing</span></div>
+      <div class="media two">
+        <figure>
+          <svg class="ph" viewBox="0 0 600 760" role="img" aria-label="Project image A1-1">
+            <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#c9c8ff"/><stop offset="1" stop-color="#f7c6d9"/></linearGradient></defs>
+            <rect width="600" height="760" fill="url(#g1)"/>
+            <circle cx="300" cy="330" r="150" fill="#fff" opacity="0.55"/>
+            <rect x="120" y="520" width="360" height="12" fill="#111" opacity="0.15"/>
+          </svg>
+          <figcaption>Studio identity — mark & system</figcaption>
+        </figure>
+        <figure>
+          <svg class="ph" viewBox="0 0 600 760" role="img" aria-label="Project image A1-2">
+            <rect width="600" height="760" fill="#111"/>
+            <rect x="90" y="90" width="420" height="580" fill="none" stroke="#fff" stroke-width="2"/>
+            <text x="300" y="400" fill="#fff" font-size="120" font-family="Helvetica" text-anchor="middle" font-weight="700">A</text>
+          </svg>
+          <figcaption>Applications — print & signage</figcaption>
+        </figure>
+      </div>
+      <div class="info">
+        <h2>Atelier — Visual Identity</h2>
+        <p>A modular identity built around a single adaptive mark. The system flexes
+           from a business card to a building facade while staying unmistakably itself.</p>
+        <ul>
+          <li><span>Role</span><span>Art Direction, Design</span></li>
+          <li><span>Deliverables</span><span>Logo, Type, Guidelines</span></li>
+          <li><span>Year</span><span>2026</span></li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- ===== B1 ===== -->
+    <article class="work flip">
+      <div class="tag"><span><b>B1</b> &nbsp; Web / Interface</span><span>2025</span></div>
+      <figure class="media">
+        <svg class="ph" viewBox="0 0 900 620" role="img" aria-label="Project image B1">
+          <rect width="900" height="620" fill="#eef0f2"/>
+          <rect x="0" y="0" width="900" height="70" fill="#111"/>
+          <rect x="40" y="120" width="500" height="40" fill="#111" opacity="0.85"/>
+          <rect x="40" y="180" width="360" height="40" fill="#111" opacity="0.35"/>
+          <rect x="40" y="300" width="240" height="240" fill="#1a1af0"/>
+          <rect x="320" y="300" width="240" height="240" fill="#c9c8ff"/>
+          <rect x="600" y="300" width="240" height="240" fill="#f7c6d9"/>
+        </svg>
+        <figcaption>Responsive site & component library</figcaption>
+      </figure>
+      <div class="info">
+        <h2>Field Notes — Editorial Platform</h2>
+        <p>A reading-first publishing site with a typographic scale that holds up from
+           long essays to single images. Fast, quiet, and built to last.</p>
+        <ul>
+          <li><span>Role</span><span>Design &amp; Front-end</span></li>
+          <li><span>Stack</span><span>HTML, CSS, JS</span></li>
+          <li><span>Year</span><span>2025</span></li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- ===== C1 ===== -->
+    <article class="work">
+      <div class="tag"><span><b>C1</b> &nbsp; Image / Direction</span><span>2025</span></div>
+      <figure class="media">
+        <svg class="ph" viewBox="0 0 900 620" role="img" aria-label="Project image C1">
+          <defs><radialGradient id="g3" cx="0.5" cy="0.4" r="0.7">
+            <stop offset="0" stop-color="#ffe08a"/><stop offset="0.6" stop-color="#f77"/><stop offset="1" stop-color="#301"/></radialGradient></defs>
+          <rect width="900" height="620" fill="url(#g3)"/>
+          <ellipse cx="450" cy="300" rx="220" ry="220" fill="#fff" opacity="0.12"/>
+        </svg>
+        <figcaption>Art direction — colour & light study</figcaption>
+      </figure>
+      <div class="info">
+        <h2>Halo — Image Series</h2>
+        <p>An ongoing study of gradient, grain, and glow. Frames made to sit between
+           the screen and the print, warm on both.</p>
+        <ul>
+          <li><span>Role</span><span>Direction, Retouch</span></li>
+          <li><span>Format</span><span>Series of 12</span></li>
+          <li><span>Year</span><span>2025</span></li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- ===== D1 ===== -->
+    <article class="work flip">
+      <div class="tag"><span><b>D1</b> &nbsp; Product</span><span>2024</span></div>
+      <figure class="media">
+        <svg class="ph" viewBox="0 0 900 620" role="img" aria-label="Project image D1">
+          <rect width="900" height="620" fill="#111"/>
+          <rect x="250" y="120" width="400" height="380" rx="24" fill="#1a1af0"/>
+          <rect x="290" y="160" width="320" height="300" rx="14" fill="#fff" opacity="0.9"/>
+          <rect x="320" y="200" width="180" height="18" fill="#111" opacity="0.25"/>
+          <rect x="320" y="236" width="120" height="18" fill="#111" opacity="0.15"/>
+        </svg>
+        <figcaption>Product & packaging concept</figcaption>
+      </figure>
+      <div class="info">
+        <h2>Card — Membership Object</h2>
+        <p>A small object with big presence: a member card designed as a keepsake,
+           not a throwaway. Every edge considered.</p>
+        <ul>
+          <li><span>Role</span><span>Design</span></li>
+          <li><span>Deliverables</span><span>Card, Sleeve, Kit</span></li>
+          <li><span>Year</span><span>2024</span></li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- ===== E1 ===== -->
+    <article class="work">
+      <div class="tag"><span><b>E1</b> &nbsp; Type</span><span>2024</span></div>
+      <figure class="media">
+        <svg class="ph" viewBox="0 0 900 620" role="img" aria-label="Project image E1">
+          <rect width="900" height="620" fill="#f2f1ee"/>
+          <text x="60" y="360" font-family="Helvetica" font-size="300" font-weight="700" fill="#111">Aa</text>
+          <rect x="60" y="420" width="780" height="2" fill="#111"/>
+          <text x="60" y="470" font-family="Helvetica" font-size="34" fill="#8a8a85">Grotesk · 6 weights</text>
+        </svg>
+        <figcaption>Custom display typeface</figcaption>
+      </figure>
+      <div class="info">
+        <h2>Neue Grotesk — Type Study</h2>
+        <p>A working display face drawn for headlines. Tight, confident, and a little
+           strange where it counts.</p>
+        <ul>
+          <li><span>Role</span><span>Type Design</span></li>
+          <li><span>Weights</span><span>6 + Italics</span></li>
+          <li><span>Year</span><span>2024</span></li>
+        </ul>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="about" id="about">
+    <p class="lead">I design calm, durable things for the web and the page.</p>
+    <div class="cols">
+      <div>
+        <h3>Info</h3>
+        <p>Hanseok Kim is a designer working across identity, interface, and image,
+           based in Seoul. Available for select projects.</p>
+      </div>
+      <div>
+        <h3>Services</h3>
+        <p>Brand Identity</p><p>Web Design &amp; Build</p><p>Art Direction</p><p>Editorial &amp; Type</p>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <p><a href="mailto:ghkrk2565@gmail.com">ghkrk2565@gmail.com</a></p>
+        <p><a href="#">Instagram</a></p>
+        <p><a href="https://github.com/ghkrk2565-boop">GitHub</a></p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <span>© 2026 Hanseok Kim</span>
+  <a class="big" href="mailto:ghkrk2565@gmail.com">Say hello →</a>
+  <span>Built by hand · Hosted on GitHub Pages</span>
+</footer>
+
+<a class="toplink" href="#top">↑ Top</a>
+
+</body>
+</html>
